@@ -1,0 +1,18 @@
+{% extends "flashcards/base.html" %}
+
+{% block content %}
+
+<div class="startpage">
+
+    You have {{ cards_count }} card(s).
+    <p/>
+    Please select <a href="{% url 'cardadmin' %}">Card Admin</a> to add new cards and see all cards
+
+    {% if cards_count > 0 %}
+        <p/>
+        Please select <a href="{% url 'learn' %}">Learn Cards</a> to start learning.
+    {%  endif %}
+
+</div>
+
+{% endblock %}

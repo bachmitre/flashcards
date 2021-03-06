@@ -1,0 +1,27 @@
+{% load static %}
+
+<html>
+
+    <head>
+        <link rel="stylesheet" href="{% static 'flashcards/flashcards.css' %}">
+    </head>
+
+    <body>
+
+        <div class="header">
+            <h3>Header</h3>
+            Logged in as: {{ user.get_username }} (<a href="/accounts/logout/">Logout</a>)
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'cardadmin' %}">Card Admin</a></li>
+                <li><a href="{% url 'learn' %}">Learn Cards</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+
+    </body>
+
+</html>

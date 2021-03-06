@@ -1,0 +1,36 @@
+{% extends "flashcards/base.html" %}
+
+{% block content %}
+
+<!-- form to create a new card -->
+<div class="newcard">
+    <h3>Create New Card</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Add">
+    </form>
+</div>
+
+<!-- list of all cards for this user -->
+<div class="allcards">
+    <h3>All Cards ({{ cards|length }})</h3>
+    <ul>
+        {% for c in cards %}
+            <li>
+                <div class="card">
+                    <ul>
+                        <li>ID: {{ c.id }}</li>
+                        <li>Word: {{ c.word }}</li>
+                        <li>Definition: {{ c.definition }}</li>
+                        <li>Bin: {{ c.bin.order }}</li>
+                        <li>Next Review Time: {{ c.next_review }}</li>
+                        <li>Total Wrong {{ c.total_wrong }}</li>
+                    </ul>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

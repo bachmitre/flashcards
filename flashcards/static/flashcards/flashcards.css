@@ -1,0 +1,13 @@
+.startpage {background-color: lightcoral; padding: 10px 10px 10px 10px; font-size: 20px;}
+.header {background-color: lightgrey; padding: 10px 10px 10px 10px;}
+.debug {background-color: lightgreen; padding: 10px 10px 10px 10px;}
+.word {background-color: aqua; padding: 10px 10px 10px 10px;}
+#showButton {background-color: aqua; padding: 10px 10px 10px 10px;}
+.definition {background-color: lightgrey; padding: 10px 10px 10px 10px;}
+.answers {margin: 10px 0px 0px 0px;}
+.card {padding: 10px 10px 10px 10px;}
+.newcard {background-color: aqua; padding: 10px 10px 10px 10px;}
+.allcards {background-color: lightgreen; padding: 10px 10px 10px 10px;}
+ul {list-style-type: none; padding-left: 0;}
+li .card  { background: lightgrey;}
+li:nth-child(odd) .card  { background: lightsteelblue; list-style-type: none;}
