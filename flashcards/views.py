@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from datetime import datetime
+from django.utils import timezone
 from dateutil.relativedelta import relativedelta
 from django.contrib.auth.decorators import login_required
 
@@ -76,7 +76,7 @@ def answer(request, card_id, result):
 
     # increase time to review by time delta of current bin
     if card.bin.order < max_bin:
-        card.next_review = datetime.utcnow() + relativedelta(**{card.bin.unit: card.bin.amount})
+        card.next_review = timezone.now() + relativedelta(**{card.bin.unit: card.bin.amount})
 
     card.save()
     return redirect('/learn')

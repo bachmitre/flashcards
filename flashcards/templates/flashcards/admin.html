@@ -3,34 +3,43 @@
 {% block content %}
 
 <!-- form to create a new card -->
-<div class="newcard">
-    <h3>Create New Card</h3>
-    <form method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Add">
-    </form>
+
+<div class="card" style="margin-top: 20px;">
+  <div class="card-body">
+    <h5 class="card-title">Create New Card</h5>
+    <p class="card-text">
+      <div class="form-group">
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input class="btn btn-primary" type="submit" value="Add" style="margin-top: 20px;">
+        </form>
+    </div>
+    </p>
+  </div>
 </div>
 
 <!-- list of all cards for this user -->
-<div class="allcards">
+<div class="allcards" style="margin-top: 20px;">
     <h3>All Cards ({{ cards|length }})</h3>
-    <ul>
-        {% for c in cards %}
-            <li>
-                <div class="card">
-                    <ul>
-                        <li>ID: {{ c.id }}</li>
-                        <li>Word: {{ c.word }}</li>
-                        <li>Definition: {{ c.definition }}</li>
-                        <li>Bin: {{ c.bin.order }}</li>
-                        <li>Next Review Time: {{ c.next_review }}</li>
-                        <li>Total Wrong {{ c.total_wrong }}</li>
-                    </ul>
-                </div>
-            </li>
-        {% endfor %}
-    </ul>
+    {% for c in cards %}
+
+        <div class="card " style="margin-top: 20px; background-color: skyblue;" >
+          <div class="card-body">
+            <h5 class="card-title">ID: {{ c.id }}</h5>
+            <p class="card-text">
+              <ul class="list-group">
+                  <li class="list-group-item">Word: {{ c.word }}</li>
+                  <li class="list-group-item">Definition: {{ c.definition }}</li>
+                  <li class="list-group-item">Bin: {{ c.bin.order }}</li>
+                  <li class="list-group-item">Next Review Time: {{ c.next_review }}</li>
+                  <li class="list-group-item">Total Wrong {{ c.total_wrong }}</li>
+               </ul>
+            </p>
+          </div>
+        </div>
+
+    {% endfor %}
 </div>
 
 {% endblock %}

@@ -4,37 +4,36 @@
 
 {% if not message %}
 
-    <div class="debug">
-        <h3>Debug Info</h3>
-        <ul>
-            <li>Currend Card Id: {{ card.id }}</li>
-            <li>Bin: {{ card.bin }}</li>
-            <li>Next Review Time: {{ card.next_review }}</li>
-            <li>Total Wrong: {{ card.total_wrong }}</li>
-        </ul>
-    </div>
-
-    <div class="word">
-        <h3>Word</h3>
-        {{ card.word }}
-    </div>
-
-    <div id="showButton">
-        <input type="button" value="Show Definition" onclick="showDiv()"/>
+    <div class="card" style="margin-top: 20px;">
+      <div class="card-body">
+        <h5 class="card-title">Word:</h5>
+        <p class="card-text">
+            {{ card.word }}
+        </p>
+        <div id="showButton">
+            <button type="button" class="btn btn-primary" onclick="showDiv()">Show Definition</button>
+        </div>
+      </div>
     </div>
 
     <div id='definition' class="definition" style="display:none;">
-        <h3>Definition</h3>
-        {{ card.definition }}
 
-        <div class="answers">
-            <a href="/answer/{{ card.id }}/correct"><button>I got it</button></a>
-            <a href="/answer/{{ card.id }}/incorrect"><button>I did not get it</button</a>
+        <div id='definition' class="card" style="margin-top: 20px;">
+          <div class="card-body">
+            <h5 class="card-title">Definition:</h5>
+            <p class="card-text">
+                {{ card.definition }}
+            </p>
+            <a type="button" class="btn btn-primary" href="/answer/{{ card.id }}/correct">I got it</a>
+            <a type="button" class="btn btn-primary" href="/answer/{{ card.id }}/incorrect">I did not get it</a>
+          </div>
         </div>
     </div>
 
 {%  else %}
-    {{ message }}
+    <div class="alert alert-secondary" role="alert" style="margin-top: 20px;">
+          {{ message }}
+    </div>
 {% endif %}
 
 <script>

@@ -2,17 +2,26 @@
 
 {% block content %}
 
-<div class="startpage">
+{% if cards_count == 0 %}
+    <div class="alert alert-secondary" role="alert" style="margin-top: 20px;">
+      You don't have any cards. Add some cards first!
+    </div>
+{% endif %}
 
-    You have {{ cards_count }} card(s).
-    <p/>
-    Please select <a href="{% url 'cardadmin' %}">Card Admin</a> to add new cards and see all cards
+<div class="card" style="margin-top: 20px;">
+  <div class="card-body">
+    <h5 class="card-title">Start Learning</h5>
+    <p class="card-text">You have {{ cards_count }} card(s). Start learning them.</p>
+    <a href="{% url 'learn' %}" class="card-link">Go</a>
+  </div>
+</div>
 
-    {% if cards_count > 0 %}
-        <p/>
-        Please select <a href="{% url 'learn' %}">Learn Cards</a> to start learning.
-    {%  endif %}
-
+<div class="card" style="margin-top: 20px;">
+  <div class="card-body">
+    <h5 class="card-title">Card Admin</h5>
+    <p class="card-text">Add new cards and view existing cards.</p>
+    <a href="{% url 'cardadmin' %}" class="card-link">Go</a>
+  </div>
 </div>
 
 {% endblock %}
