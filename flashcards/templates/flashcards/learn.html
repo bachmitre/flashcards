@@ -24,8 +24,8 @@
             <p class="card-text">
                 {{ card.definition }}
             </p>
-            <a type="button" class="btn btn-primary" href="/answer/{{ card.id }}/correct">I got it</a>
-            <a type="button" class="btn btn-primary" href="/answer/{{ card.id }}/incorrect">I did not get it</a>
+            <a href="/answer/{{ card.id }}/correct"><button type="button" class="btn btn-primary">I got it</button></a>
+            <a href="/answer/{{ card.id }}/incorrect"><button type="button" class="btn btn-primary">I did not get it</button></a>
           </div>
         </div>
     </div>
